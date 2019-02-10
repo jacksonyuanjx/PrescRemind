@@ -81,3 +81,25 @@ input.time {
   border-radius:15px; 
   box-shadow: 3px 5px;
 }
+
+.navigation {
+  border-width:1px; 
+  border-color:#b30e0e; 
+  height:35px;
+  width:140px; 
+  border-style:solid; 
+  line-height:35px; 
+  border-radius:5px; 
+}
+
+.navigationcurr {
+  border-width:1px; 
+  border-color:#b30e0e; 
+  background:#b30e0e; 
+  height:35px;
+  width:140px; 
+  border-style:solid; 
+  line-height:13px; 
+  border-radius:5px; 
+  color:#fff; 
+}

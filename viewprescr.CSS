@@ -114,6 +114,18 @@ html {
   border-style:solid; 
   line-height:35px; 
   border-radius:5px; 
+  cursor:pointer; 
+}
+
+.navigation a:hover {
+  border-width:1px; 
+  border-color:white; 
+  height:35px;
+  width:140px; 
+  border-style:solid; 
+  line-height:35px; 
+  border-radius:5px; 
+  cursor:pointer; 
 }
 
 
@@ -127,6 +139,7 @@ html {
   line-height:13px; 
   border-radius:5px; 
   color:#fff; 
+  cursor:pointer; 
 }
 
 

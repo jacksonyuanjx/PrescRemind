@@ -9,29 +9,32 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
   <link rel="stylesheet" href="style.css">
 </head>
-    
+
 <html>
       <header id="header" class = "alt">
-       <center><div class="space"><img src="https://i.imgur.com/8LvAurs.png" alt="" height="96px" width="400"/></div></center> 
+       <center><div class="space"><img src="https://i.imgur.com/8LvAurs.png" alt="" height="96px" width="400"/></div></center>
       </header>
 
     <body>
       <center>
-        <br><br> 
-        <img src="https://i.imgur.com/yMnbsZO.png" height="40px" width="80px"/>   
-        <img src="https://i.imgur.com/w3WVIBE.png" height="40px" width="80px"/>
-        <br><br> 
-          
+        <br><br>
+        <button onclick="addPrescriptionsClicked()"><img src="https://i.imgur.com/yMnbsZO.png" height="40px" width="80px"/></button>
+        <button onclick="viewPrescriptionsClicked()"><img src="https://i.imgur.com/w3WVIBE.png" height="40px" width="80px"/></button>
+        <br><br>
+
+
+      <span id="addPrescription">
+
         <div class="spacesmall">
-          <div class="usertext">You're logged in as: <b>E-MAIL HERE</b></div> 
-        </div> 
+          <div class="usertext">You're logged in as: <b>E-MAIL HERE</b></div>
+        </div>
         <div class ="space"></div>
             <center>
                  <form>
                      <div class="usertext2">
                       <div class="usertext2">Prescription Name</div>
-                        <input id='drugNameInput' type="text" value=""><br><br> 
-                      <div class="usertext2">E-mail of alert recipient</div> 
+                        <input id='drugNameInput' type="text" value=""><br><br>
+                      <div class="usertext2">E-mail of alert recipient</div>
                         <input id='alertEmailInput' type="email" value=""><br><br>
                       <div class="usertext2">What time do you have to take this prescription?</div>
                         <input id='intakeTimeInput' class=time type="time"> <br><br>
@@ -45,24 +48,26 @@
             <center>
                 <div class="drugSubmitBtn">
                     <div class="add">+ Add New Prescription</div>
-                </div>  
-                
+                </div>
+
               <div class="space"></div>
               <div class="space"></div>
               <div class="footerspace"></div>
             </center>
-          
+
         </center>
-         
+      </span>
+
     </body>
 
  </html>
-    
-    
-    
-    
+
+
+
+
 
   <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
   <script src="main.js"></script>
 
 </html>
+

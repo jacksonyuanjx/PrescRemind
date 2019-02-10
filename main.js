@@ -19,38 +19,39 @@ firebase.initializeApp(config);
 //  });
 //}
 
+var prescriptionsRef = firebase.database().ref('prescriptions');
 
-// Reference messages collection
-var messagesRef = firebase.database().ref('messages');
-
-// Listen for form submit
-document.getElementById('contactForm').addEventListener('submit', submitForm);
+// Listen for add prescription button submit
+var drugSubmitBtn = document.getElementsByClassName('drugSubmitBtn');
+drugSubmitBtn[0].addEventListener('click', submitForm);
 
 // Submit form
 function submitForm(e){
   e.preventDefault();
 
   // Get values
-  var name = getInputVal('name');
-  var company = getInputVal('company');
-  var email = getInputVal('email');
-  var phone = getInputVal('phone');
-  var message = getInputVal('message');
+  var name = getInputVal('drugNameInput');
+  var email = getInputVal('alertEmailInput');
+  var time = getInputVal('intakeTimeInput');
+  var days = getInputVal('intakeDaysInput');
 
   // Save message
-  saveMessage(name, company, email, phone, message);
+  saveMessage(name, email, time, days);
 
   // Show alert
-  document.querySelector('.alert').style.display = 'block';
+//  document.querySelector('.alert').style.display = 'block';
 
   // Hide alert after 3 seconds
-  setTimeout(function(){
-    document.querySelector('.alert').style.display = 'none';
-  },3000);
+//  setTimeout(function(){
+//    document.querySelector('.alert').style.display = 'none';
+//  },3000);
 
   // Clear form
-  document.getElementById('contactForm').reset();
+  document.getElementById('addDrugForm').reset();
+
+    alert('button press complete');
 }
+
 
 // Function to get get form values
 function getInputVal(id){
@@ -58,17 +59,20 @@ function getInputVal(id){
 }
 
 // Save message to firebase
-function saveMessage(name, company, email, phone, message){
-  var newMessageRef = messagesRef.push();
-  newMessageRef.set({
+function saveMessage(name, email, time, days) {
+  var newPrescriptionsRef = prescriptionsRef.push();  // push() will return a reference to the new data path, which you can use to get the key or set data to it.
+//    alert(name);
+//    alert(email);
+//    alert(time);
+//    alert(days);
+
+  newPrescriptionsRef.set({
     name: name,
-    company:company,
-    email:email,
-    phone:phone,
-    message:message
+    email: email,
+    time: time,
+    days: days
   });
 }
-
 
 document.addEventListener("DOMContentLoaded", event => {
     const app = firebase.app();
@@ -90,6 +94,7 @@ function googleLogin() {
 }
 
 
+
 //function onSuccess(googleUser) {
 //      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
 //    }
@@ -107,3 +112,5 @@ function googleLogin() {
 //        'onfailure': onFailure
 //      });
 //}
+
+

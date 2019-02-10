@@ -1,0 +1,83 @@
+html {
+  background-color: #f3f3f3; 
+}
+
+.space {
+  margin-top:50px; 
+} 
+
+.footerspace {
+  margin-bottom:100px; 
+} 
+
+.spacebottom {
+  margin-bottom:100px; 
+}
+
+.usertext {
+  font-size: 85%;
+  font-family: "Avenir Hebrew", "Avenir", Arial; 
+  font-color: #515151;
+}
+
+.usertext2 {
+  font-size: 90%;
+  font-family: "Avenir Hebrew", "Avenir", Arial; 
+  font-color: #636363; 
+  font-weight:bold;
+}
+
+.spacesmall {
+  margin-top:20px; 
+  margin-bottom:30px; 
+}
+
+.drugs {
+  float:inline; 
+}
+
+.add {
+  background-shape: #f3f3f3;
+  color: #1f1f1f;
+  font-family: "Avenir Hebrew", "Avenir", Arial; 
+  font-weight: bold; 
+  font-size: 75%; 
+  /* margin: 20px;
+  padding: 20px; */
+}
+
+input {
+  font-family:"Avenir", arial;  
+  height:40px; 
+  width:300px; 
+  border:none;
+  outline:none; 
+  box-shadow: 3px 3px #cacaca;
+  font-size:140%; 
+  font-color:#838383; 
+}
+
+input.time {
+  font-family:"Avenir", arial;  
+  height:40px; 
+  width:140px; 
+  border:none;
+  outline:none; 
+  box-shadow: 3px 3px #cacaca;
+  font-size:140%; 
+  font-color:#838383; 
+}
+
+.button {
+  text-align:center;
+  background: #f3f6f8; 
+  width:160px;
+  height:15px;
+  padding:10px;
+  paddding-bottom:-10px; 
+  color:#a6bbc9;
+  position:relative;
+  margin-top:20px; 
+  border-radius:15px; 
+  box-shadow: 3px 5px;
+}

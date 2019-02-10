@@ -1,40 +1,88 @@
-<html>
-   <header id="header" class = "alt">
-   <center><div class="space"><img src="https://i.imgur.com/8LvAurs.png" alt="" height="96px" width="400"/></div></center> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Acme Web Design</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <link rel="stylesheet" href="style.css">
+    <script type='text/javascript' src='jquery.min.js'></script>
+
+</head>
     
-    <center><br><br> 
-      <div class="navigation"><div class="add">Add prescriptions</div></div>
-      <br>
-      <div class="navigationcurr"><div class="add"><p style="color:white">View prescriptions</p></div></div>
-      <br><br> </header>
+<html>
+      <header id="header" class = "alt">
+       <center><div class="space"><img src="https://i.imgur.com/8LvAurs.png" alt="" height="96px" width="400"/></div></center> 
+      </header>
 
-  
-  <body>
-    <center>
-    <div class="usertext">
-      <br>
-    </div>
-      <!-- Need Javascript to insert prescriptions here? --> 
-      <!-- Sample HTML here --> 
-      
-      <div class="box"> 
-        <!-- first name of presc -->
-        <center><p style="color:#e32626"><img src=https://i.imgur.com/umxhvkU.png height="30px" width="30px">Happy Pills</p>
-        
-        <!-- e-mail of recipient -->
-        <div class="smallerfont"> 
-          Alerts for Happy Pills are being sent to <b>wohlte@gmail.com</b><br><br> 
-        
-        <!-- time & frequency --> 
-          Please indicate you have taken this medication: <b>every 2 days</b> by <b>1:00 AM</b>. 
-          <br><br>
-        <div class="takenselect">Taken</div>
+    <body>
+      <center>
+        <br><br>
+        <button onclick="addPrescriptionsClicked()"><img src="https://i.imgur.com/yMnbsZO.png" height="40px" width="80px"/></button>
+        <button onclick="viewPrescriptionsClicked()"><img src="https://i.imgur.com/w3WVIBE.png" height="40px" width="80px"/></button>
+        <br><br>
+          
+      <span id="addPrescription">
+
+        <div class="spacesmall">
+          <div class="usertext">You're logged in as: <b>E-MAIL HERE</b></div> 
+        </div> 
+        <div class ="space"></div>
+            <center>
+                 <form id='addDrugForm'>
+                     <div class="usertext2">
+                      <div class="usertext2">Prescription Name</div>
+                        <input id='drugNameInput' type="text" value="" required><br><br> 
+                      <div class="usertext2">E-mail of alert recipient</div> 
+                        <input id='alertEmailInput' type="email" value="" required><br><br>
+                      <div class="usertext2">What time do you have to take this prescription?</div>
+                        <input id='intakeTimeInput' class=time type="time" required> <br><br>
+                      <div class="usertext2">I have to take this prescription every:<br>
+                        <input id='intakeDaysInput' class=time type="number" max="7" min="1" required>  days</div>
+                      </div>
+                      <div id='drugExistsMsg'>
+                        <h3>Drug has already been added!</h3>
+                      </div>
+                     <button class="drugSubmitBtn">
+                    <div class="add">+ Add New Prescription</div>
+                    </button>  
+                     
+                 </form>
+            </center>
+            <center>
+                
+              <div class="space"></div>
+              <div class="space"></div>
+              <div class="footerspace"></div>
+            </center>
+          
+          </span>
+          
+    <span id='viewPrescriptions'>
+        <center>
+        <div class="usertext">
+          <br>
         </div>
-      
+      <!-- Dynamic list of prescriptions pulled from firebase --> 
+        <ul class='prescriptions' style="list-style: none;">
+            
+        </ul>
+            
         </center>
-      </div>
+        </span>
     </center>
-  </body>
-  
-</html>
+         
+    </body>
 
+ </html>
+    
+    
+    
+    
+
+  <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+  <script src="main.js"></script>
+
+</html>

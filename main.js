@@ -41,7 +41,7 @@ function submitForm(e){
   var days = getInputVal('intakeDaysInput');
 
   // Save message
-  saveMessage(name, email, time, days);
+  saveDrug(name, email, time, days);
 
   // Show alert
 //  document.querySelector('.alert').style.display = 'block';
@@ -63,10 +63,10 @@ function getInputVal(id){
 }
 
 // Save message to firebase
-function saveMessage(name, email, time, days) {
+function saveDrug(name, email, time, days) {
     var newUsersRef = usersRef.push();  // push() will return a reference to the new data path, which you can use to get the key or set data to it.
 //    var newUsersRef = usersRef.push();
-
+    
     // ATTEMPT: check if drug already added to prevent duplicates
 //    prescriptionsRef.child(name).once('value', function(snapshot) {
 //        if (snapshot.exists()) {
@@ -83,7 +83,7 @@ function saveMessage(name, email, time, days) {
 //        }
 //    });
 //    var user = firebase.auth().currentUser
-
+    
       firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 alert(user);
@@ -92,20 +92,21 @@ function saveMessage(name, email, time, days) {
 //                    user: user
 //                });
                 var uid = firebase.auth().currentUser.uid;
-
+                
                 // need guard around .set() to check if userID already exists
 //                alert(usersRef.child(uid));
                 firebase.database().ref().child(uid).child(name).set({
                     email: email,
                     time: time,
-                    days: days
+                    days: days,
+                    taken: false
                 });
 
 //                var query = firebase.database().ref("users");
 //                query.once("value")
 //                .then(function(snapshot) {
         // loop that checks to see if userID already exists
-//                    snapshot.forEach(function(usersSnapshot) {
+//                    snapshot.forEach(function(usersSnapshot) {    
 //                        var userID = usersSnapshot.val();
 //                        alert(userID);
 //                        if (userID == uid) {
@@ -122,7 +123,7 @@ function saveMessage(name, email, time, days) {
 //                firebase.database().ref().child('users').child(uid).set({
 //                    prescriptions: {}
 //                });
-
+                
                 // add the userID
 //                firebase.database().ref().child('users').set({
 //                    userID: uid
@@ -135,21 +136,18 @@ function saveMessage(name, email, time, days) {
                 // failed to sign in
                 alert('user NOT signed in');
             }
-        });
-//    newUsersRef.set({
-//        name: name,
-//        email: email,
-//        time: time,
-//        days: days
-//    });
-//    alert(name);
-//    alert(email);
-//    alert(time);
-//    alert(days);
-
+      });
 }
+                                         
 
 
+//function readDrug() {
+//    var uid = firebase.auth().currentUser.uid;
+//  firebase.database().ref().child(uid).child(name)
+//
+//}                                         
+                                         
+                                         
 document.addEventListener("DOMContentLoaded", event => {
     const app = firebase.app();
 //    var ref = new Firebase("https://xdhacks2019.firebaseio.com/");
@@ -165,17 +163,47 @@ document.addEventListener("DOMContentLoaded", event => {
 function googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider)
-
+    
     .then(result => {
         const user = result.user;
         //
         console.log(user);
-
+      
         window.location.href="homepage.html";
     })
     .catch(console.log);
 }
 
+
+function viewPrescriptionsClicked() {
+  document.getElementById("addPrescription").style.display = "none";
+    var uid = firebase.auth().currentUser.uid;
+    var ref = firebase.database().ref();
+                                           
+    var query = firebase.database().ref(uid);
+    query.once("value")
+    .then(function(snapshot) {
+//        alert(snapshot.numChildren());
+        for (var i = 0; i < snapshot.numChildren(); i++) {
+            var name = Object.keys(snapshot.val())[i];
+            var values = Object.values(snapshot.val())[i];
+            var valuesObj = JSON.parse(JSON.stringify(values));
+            
+            var email = valuesObj.email;
+            var days = valuesObj.days;
+            var taken = valuesObj.taken;
+            var time = valuesObj.time;
+            
+//            alert(JSON.stringify(snapshot.val()));
+           $('ul.prescriptions').append("<li class='box'><center><p style='color:#e32626'><img src=https://i.imgur.com/umxhvkU.png height='30px' width='30px'>" + name + "</p><div class='smallerfont'> Alerts for\xa0" + name + "\xa0are being sent to <b>" + email + "\xa0</b><br><br> Please indicate you have taken this medication: <b>every " + days + " days</b> by <b>" + time + "</b>.<br><br><button class='takenselect'>Taken</button></div</center></li>")
+        }
+    });                                       
+// Object.entries??                                         
+}
+
+function addPrescriptionsClicked() {
+  document.getElementById("addPrescription").style.display = "";
+}
 
 //function onSuccess(googleUser) {
 //      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
@@ -195,10 +223,4 @@ function googleLogin() {
 //      });
 //}
 
-function viewPrescriptionsClicked() {
-  document.getElementById("addPrescription").style.display = "none";
-}
 
-function addPrescriptionsClicked() {
-  document.getElementById("addPrescription").style.display = "";
-}

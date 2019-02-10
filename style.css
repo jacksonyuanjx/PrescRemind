@@ -70,6 +70,7 @@ html {
 }
 
  .drugSubmitBtn {
+/*
   text-align:center;
   background: #f3f6f8; 
   width:160px;
@@ -81,4 +82,213 @@ html {
   margin-top:20px; 
   border-radius:15px; 
   box-shadow: 3px 5px;
+*/
+     display: inline-block;
+      background: white;
+      color: #444;
+      width: 190px;
+      border-radius: 5px;
+      border: thin solid #888;
+      box-shadow: 1px 1px 1px grey;
+      white-space: nowrap;
+}
+
+#drugExistsMsg {
+    visibility: hidden;
+    font-family: sans-serif;
+    color: blue;
+    margin-bottom: -2.5%;
+}
+
+#viewPrescriptions {
+/*    visibility: hidden;*/
+}
+
+
+
+/* CSS FOR LIST OF DRUGS */
+.space {
+  margin-top:50px; 
+} 
+
+.buttontext {
+  font-size:80%; 
+  font-family:"Avenir"; 
+}
+
+.pname {
+  color:#e32626;
+}
+
+.footerspace {
+  margin-bottom:100px; 
+} 
+
+.spacebottom {
+  margin-bottom:100px; 
+}
+
+.usertext {
+  font-size: 85%;
+  font-family: "Avenir Hebrew", "Avenir", Arial; 
+  color: #515151;
+}
+
+.usertext2 {
+  font-size: 90%;
+  font-family: "Avenir Hebrew", "Avenir", Arial; 
+  color: #636363; 
+  font-weight:bold;
+}
+
+.spacesmall {
+  margin-top:20px; 
+  margin-bottom:30px; 
+}
+
+.drugs {
+  float:inline; 
+}
+
+.add {
+  color: #1f1f1f;
+  font-family: "Avenir Hebrew", "Avenir", Arial; 
+  font-weight: bold; 
+  font-size: 75%; 
+  /* margin: 20px;
+  padding: 20px; */
+}
+
+.smallerfont {
+  font-size:70%; 
+}
+
+.taken {
+  padding-bottom:-10px; 
+  border-style:solid; 
+  border-width:1px; 
+  height:35px;
+  line-height:35px; 
+  width:140px; 
+  border-color:#77b30e; 
+  border-radius:5px; 
+}
+
+.takenselect {
+  color:white; 
+  border-style:solid; 
+  border-width:1px; 
+  height:35px;
+  line-height:35px; 
+  width:140px; 
+  border-color:#77b30e; 
+  background:#77b30e; 
+  border-radius:5px; 
+}
+
+
+.alreadytakenselect {
+  border-width:1px; 
+  background-color: grey; 
+  height:35px;
+  width:140px; 
+  border-style:solid; 
+  line-height:35px; 
+  border-radius:5px; 
+  color:white; 
+}
+
+
+.navigation {
+  border-width:1px; 
+  border-color:#b30e0e; 
+  height:35px;
+  width:140px; 
+  border-style:solid; 
+  line-height:35px; 
+  border-radius:5px; 
+  cursor:pointer; 
+}
+
+.navigation a:hover {
+  border-width:1px; 
+  border-color:white; 
+  height:35px;
+  width:140px; 
+  border-style:solid; 
+  line-height:35px; 
+  border-radius:5px; 
+  cursor:pointer; 
+}
+
+
+.navigationcurr {
+  border-width:1px; 
+  border-color:#b30e0e; 
+  background:#b30e0e; 
+  height:35px;
+  width:140px; 
+  border-style:solid; 
+  line-height:13px; 
+  border-radius:5px; 
+  color:#fff; 
+  cursor:pointer; 
+}
+
+
+input {
+  font-family:"Avenir", arial; 
+  height:40px; 
+  width:300px; 
+  border:none;
+  outline:none; 
+  box-shadow: 3px 3px #cacaca;
+  font-size:140%; 
+  color:#838383; 
+}
+
+
+.box {
+  margin-top:15px; 
+  margin-bottom:25px; 
+  background-color: white; 
+  font-family:"Avenir", arial; 
+  height:auto; 
+  padding:20px; 
+  width:700px; 
+  border:none;
+  outline:none; 
+  box-shadow: 3px 3px #cacaca;
+  font-size:140%; 
+  color:#838383; 
+  text-align:left; 
+}
+
+input.time {
+  font-family:"Avenir", arial;  
+  height:40px; 
+  width:140px; 
+  border:none;
+  outline:none; 
+  box-shadow: 3px 3px #cacaca;
+  font-size:140%; 
+  color:#838383; 
+}
+
+.button {
+  text-align:center;
+  background: #f3f6f8; 
+  width:160px;
+  height:15px;
+  padding:10px;
+  padding-bottom:-10px; 
+  color:#a6bbc9;
+  position:relative;
+  margin-top:20px; 
+  border-radius:15px; 
+  box-shadow: 3px 5px;
+}
+
+.navtext {
+  font-size:110%; 
 }

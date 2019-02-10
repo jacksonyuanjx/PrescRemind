@@ -1,0 +1,25 @@
+<html>
+  <header id="header" class = "alt">
+   <center><div class="space"><img src="https://i.imgur.com/8LvAurs.png" alt="" height="96px" width="400"/></div></center> 
+  </header>
+
+<body>
+  <center>
+    <img src=https://i.imgur.com/aBTuFMk.png height="550px" width="400px"\>
+    <br><br>
+    
+  <form>
+    <div class="usertext">Log in using your e-mail below!</div>
+  <input type="text">
+  </form>
+
+    
+    <div class="button"><div class="add">Log In</div></div>  
+      <div class="space"></div>
+      <div class="space"></div>
+      <div class="footerspace"></div>
+  </>
+  
+</body>
+  
+</html>

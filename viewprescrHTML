@@ -5,7 +5,7 @@
     <center><br><br> 
       <div class="navigation"><div class="add">Add prescriptions</div></div>
       <br>
-      <div class="navigationcurr"><div class="add">View prescriptions</div></div>
+      <div class="navigationcurr"><div class="add"><p style="color:white">View prescriptions</p></div></div>
       <br><br> </header>
 
   

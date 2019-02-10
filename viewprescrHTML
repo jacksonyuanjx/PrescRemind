@@ -3,9 +3,9 @@
    <center><div class="space"><img src="https://i.imgur.com/8LvAurs.png" alt="" height="96px" width="400"/></div></center> 
     
     <center><br><br> 
-    <img src="https://i.imgur.com/idGUbbA.png" height="40px" width="80px"/>   
-       
-    <img src="https://i.imgur.com/Xy3Gr1v.png" height="40px" width="80px"/>
+      <div class="navigation"><div class="add">Add prescriptions</div></div>
+      <br>
+      <div class="navigationcurr"><div class="add">View prescriptions</div></div>
       <br><br> </header>
 
   
@@ -28,7 +28,7 @@
         <!-- time & frequency --> 
           Please indicate you have taken this medication: <b>every 2 days</b> by <b>1:00 AM</b>. 
           <br><br>
-        <div class="taken">Taken</div>
+        <div class="takenselect">Taken</div>
         </div>
       
         </center>

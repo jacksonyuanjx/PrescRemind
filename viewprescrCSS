@@ -6,6 +6,15 @@ html {
   margin-top:50px; 
 } 
 
+.buttontext {
+  font-size:80%; 
+  font-family:"Avenir"; 
+}
+
+.pname {
+  font-color:#e32626;
+}
+
 .footerspace {
   margin-bottom:100px; 
 } 
@@ -15,7 +24,7 @@ html {
 }
 
 .usertext {
-  font-size: 100%;
+  font-size: 85%;
   font-family: "Avenir Hebrew", "Avenir", Arial; 
   font-color: #515151;
 }
@@ -46,8 +55,83 @@ html {
   padding: 20px; */
 }
 
+.smallerfont {
+  font-size:70%; 
+}
+
+.taken {
+  padding-bottom:-10px; 
+  border-style:solid; 
+  border-width:1px; 
+  height:35px;
+  line-height:35px; 
+  width:140px; 
+  border-color:#77b30e; 
+  border-radius:5px; 
+}
+
+.takenselect {
+  color:white; 
+  border-style:solid; 
+  border-width:1px; 
+  height:35px;
+  line-height:35px; 
+  width:140px; 
+  border-color:#77b30e; 
+  background:#77b30e; 
+  border-radius:5px; 
+}
+
+.nottaken {
+  border-width:1px; 
+  border-color:#b30e0e; 
+  height:35px;
+  width:140px; 
+  border-style:solid; 
+  line-height:35px; 
+  border-radius:5px; 
+}
+
+
+.nottakenselect {
+  border-width:1px; 
+  border-color:#b30e0e; 
+  background:#b30e0e; 
+  height:35px;
+  width:140px; 
+  border-style:solid; 
+  line-height:35px; 
+  border-radius:5px; 
+  color:white; 
+}
+
+
+.navigation {
+  border-width:1px; 
+  border-color:#b30e0e; 
+  height:35px;
+  width:140px; 
+  border-style:solid; 
+  line-height:35px; 
+  border-radius:5px; 
+}
+
+
+.navigationcurr {
+  border-width:1px; 
+  border-color:#b30e0e; 
+  background:#b30e0e; 
+  height:35px;
+  width:140px; 
+  border-style:solid; 
+  line-height:35px; 
+  border-radius:5px; 
+  color:#fff; 
+}
+
+
 input {
-  font-family:"Avenir", arial;  
+  font-family:"Avenir", arial; 
   height:40px; 
   width:300px; 
   border:none;
@@ -57,6 +141,33 @@ input {
   font-color:#838383; 
 }
 
+
+.box {
+  margin-top:15px; 
+  margin-bottom:25px; 
+  background-color: white; 
+  font-family:"Avenir", arial; 
+  height:auto; 
+  padding:20px; 
+  width:700px; 
+  border:none;
+  outline:none; 
+  box-shadow: 3px 3px #cacaca;
+  font-size:140%; 
+  font-color:#838383; 
+  text-align:left; 
+}
+
+input.time {
+  font-family:"Avenir", arial;  
+  height:40px; 
+  width:140px; 
+  border:none;
+  outline:none; 
+  box-shadow: 3px 3px #cacaca;
+  font-size:140%; 
+  font-color:#838383; 
+}
 
 .button {
   text-align:center;
@@ -70,4 +181,8 @@ input {
   margin-top:20px; 
   border-radius:15px; 
   box-shadow: 3px 5px;
+}
+
+.navtext {
+  font-size:110%; 
 }

@@ -19,15 +19,20 @@ firebase.initializeApp(config);
 //  });
 //}
 
-var prescriptionsRef = firebase.database().ref('prescriptions');
+var currentUser;
+var usersRef = firebase.database().ref('users');
+//var prescriptionsRef = firebase.database().ref('prescriptions');
 
 // Listen for add prescription button submit
-var drugSubmitBtn = document.getElementsByClassName('drugSubmitBtn');
-drugSubmitBtn[0].addEventListener('click', submitForm);
+var drugSubmitBtn = document.getElementById('addDrugForm');
+if (drugSubmitBtn) {
+    drugSubmitBtn.addEventListener('submit', submitForm);
+}
+
 
 // Submit form
 function submitForm(e){
-  e.preventDefault();
+//  e.preventDefault();
 
   // Get values
   var name = getInputVal('drugNameInput');
@@ -46,9 +51,8 @@ function submitForm(e){
 //    document.querySelector('.alert').style.display = 'none';
 //  },3000);
 
-  // Clear form
-  document.getElementById('addDrugForm').reset();
-
+    // Clear form
+    document.getElementById('addDrugForm').reset();
     alert('button press complete');
 }
 
@@ -60,22 +64,100 @@ function getInputVal(id){
 
 // Save message to firebase
 function saveMessage(name, email, time, days) {
-  var newPrescriptionsRef = prescriptionsRef.push();  // push() will return a reference to the new data path, which you can use to get the key or set data to it.
+    var newUsersRef = usersRef.push();  // push() will return a reference to the new data path, which you can use to get the key or set data to it.
+//    var newUsersRef = usersRef.push();
+    
+    // ATTEMPT: check if drug already added to prevent duplicates
+//    prescriptionsRef.child(name).once('value', function(snapshot) {
+//        if (snapshot.exists()) {
+//            alert('drug EXISTS');
+//            document.getElementById('drugExistsMsg').style.visibility = 'visible';
+//        } else {
+//            alert('drug DNE');
+//              newPrescriptionsRef.set({
+//                name: name,
+//                email: email,
+//                time: time,
+//                days: days
+//              });
+//        }
+//    });
+//    var user = firebase.auth().currentUser
+    
+      firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                alert(user);
+//                var newUsersRef = usersRef.push();
+//                newUsersRef.set({
+//                    user: user
+//                });
+                var uid = firebase.auth().currentUser.uid;
+                
+                // need guard around .set() to check if userID already exists
+//                alert(usersRef.child(uid));
+                firebase.database().ref().child(uid).child(name).set({
+                    email: email,
+                    time: time,
+                    days: days
+                });
+
+//                var query = firebase.database().ref("users");
+//                query.once("value")
+//                .then(function(snapshot) {
+        // loop that checks to see if userID already exists
+//                    snapshot.forEach(function(usersSnapshot) {    
+//                        var userID = usersSnapshot.val();
+//                        alert(userID);
+//                        if (userID == uid) {
+//                           alert('userID already exists!');
+//                            firebase.database().ref().child(uid + '/prescriptions').set({
+//                                name: name
+//                            });
+//                            return true;
+//                        } else {
+//                           alert('userID DNE');
+//                        }
+//                    });
+//                });
+//                firebase.database().ref().child('users').child(uid).set({
+//                    prescriptions: {}
+//                });
+                
+                // add the userID
+//                firebase.database().ref().child('users').set({
+//                    userID: uid
+////                     name: name,
+////                        email: email,
+////                        time: time,
+////                        days: days
+//                });
+            } else {
+                // failed to sign in
+                alert('user NOT signed in');
+            }
+        });
+//    newUsersRef.set({
+//        name: name,
+//        email: email,
+//        time: time,
+//        days: days
+//    });
 //    alert(name);
 //    alert(email);
 //    alert(time);
 //    alert(days);
 
-  newPrescriptionsRef.set({
-    name: name,
-    email: email,
-    time: time,
-    days: days
-  });
 }
+
 
 document.addEventListener("DOMContentLoaded", event => {
     const app = firebase.app();
+//    var ref = new Firebase("https://xdhacks2019.firebaseio.com/");
+//var authData = ref.getAuth();
+
+//if (authData) {
+//  console.log("Authenticated user with uid:", authData.uid);
+//}
 });
 
 //var user = firebase.auth().currentUser();
@@ -88,11 +170,11 @@ function googleLogin() {
         const user = result.user;
         //
         console.log(user);
+      
         window.location.href="homepage.html";
     })
     .catch(console.log);
 }
-
 
 
 //function onSuccess(googleUser) {

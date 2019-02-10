@@ -1,0 +1,39 @@
+<html>
+   <header id="header" class = "alt">
+   <center><div class="space"><img src="https://i.imgur.com/8LvAurs.png" alt="" height="96px" width="400"/></div></center> 
+    
+    <center><br><br> 
+    <img src="https://i.imgur.com/idGUbbA.png" height="40px" width="80px"/>   
+       
+    <img src="https://i.imgur.com/Xy3Gr1v.png" height="40px" width="80px"/>
+      <br><br> </header>
+
+  
+  <body>
+    <center>
+    <div class="usertext">
+      <br>
+    </div>
+      <!-- Need Javascript to insert prescriptions here? --> 
+      <!-- Sample HTML here --> 
+      
+      <div class="box"> 
+        <!-- first name of presc -->
+        <center><p style="color:#e32626"><img src=https://i.imgur.com/umxhvkU.png height="30px" width="30px">Happy Pills</p>
+        
+        <!-- e-mail of recipient -->
+        <div class="smallerfont"> 
+          Alerts for Happy Pills are being sent to <b>wohlte@gmail.com</b><br><br> 
+        
+        <!-- time & frequency --> 
+          Please indicate you have taken this medication: <b>every 2 days</b> by <b>1:00 AM</b>. 
+          <br><br>
+        <div class="taken">Taken</div>
+        </div>
+      
+        </center>
+      </div>
+    </center>
+  </body>
+  
+</html>

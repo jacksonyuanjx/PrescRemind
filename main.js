@@ -66,7 +66,7 @@ function getInputVal(id){
 function saveMessage(name, email, time, days) {
     var newUsersRef = usersRef.push();  // push() will return a reference to the new data path, which you can use to get the key or set data to it.
 //    var newUsersRef = usersRef.push();
-    
+
     // ATTEMPT: check if drug already added to prevent duplicates
 //    prescriptionsRef.child(name).once('value', function(snapshot) {
 //        if (snapshot.exists()) {
@@ -83,7 +83,7 @@ function saveMessage(name, email, time, days) {
 //        }
 //    });
 //    var user = firebase.auth().currentUser
-    
+
       firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 alert(user);
@@ -92,7 +92,7 @@ function saveMessage(name, email, time, days) {
 //                    user: user
 //                });
                 var uid = firebase.auth().currentUser.uid;
-                
+
                 // need guard around .set() to check if userID already exists
 //                alert(usersRef.child(uid));
                 firebase.database().ref().child(uid).child(name).set({
@@ -105,7 +105,7 @@ function saveMessage(name, email, time, days) {
 //                query.once("value")
 //                .then(function(snapshot) {
         // loop that checks to see if userID already exists
-//                    snapshot.forEach(function(usersSnapshot) {    
+//                    snapshot.forEach(function(usersSnapshot) {
 //                        var userID = usersSnapshot.val();
 //                        alert(userID);
 //                        if (userID == uid) {
@@ -122,7 +122,7 @@ function saveMessage(name, email, time, days) {
 //                firebase.database().ref().child('users').child(uid).set({
 //                    prescriptions: {}
 //                });
-                
+
                 // add the userID
 //                firebase.database().ref().child('users').set({
 //                    userID: uid
@@ -165,12 +165,12 @@ document.addEventListener("DOMContentLoaded", event => {
 function googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider)
-    
+
     .then(result => {
         const user = result.user;
         //
         console.log(user);
-      
+
         window.location.href="homepage.html";
     })
     .catch(console.log);
@@ -195,4 +195,10 @@ function googleLogin() {
 //      });
 //}
 
+function viewPrescriptionsClicked() {
+  document.getElementById("addPrescription").style.display = "none";
+}
 
+function addPrescriptionsClicked() {
+  document.getElementById("addPrescription").style.display = "";
+}

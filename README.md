@@ -1,6 +1,6 @@
 # PrescRemind
 
-Project developed at XdHacks 2019, currently a work in progress :)
+Project developed at XdHacks 2019
 
 # Inspiration
 - a web app that connects patients with family members by allowing them to receive notifications on whether the patient has taken their medication or not and if not, the web app provides an automated reminding service
